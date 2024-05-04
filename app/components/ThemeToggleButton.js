@@ -1,20 +1,15 @@
 'use client'
-import React, { useContext } from 'react';
+import React from 'react';
 import { ThemeContext } from './ThemeProvider';
 
-const ThemeToggleButton = () => {
-    // Access theme and toggleTheme function from the context
-    const { theme, toggleTheme } = useContext(ThemeContext);
+const ThemeToggleButton = () =>{
+    const {theme,toggleTheme} = React.useContext(ThemeContext)
 
     return (
-        <button
-            id="global-theme-toggler"
-            className={`btn ${theme === 'light' ? 'btn-light txt-light' : 'btn-dark txt-dark'}`}
-            onClick={toggleTheme}
-        >
-            {theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+        <button class={`btn btn-${theme} txt-${theme}`} onClick={toggleTheme} id="global-theme-toggler">
+            Switch to {theme === 'light' ? 'dark' : 'light'} theme
         </button>
-    );
-}
+    )
 
-export { ThemeToggleButton };
+}
+export {ThemeToggleButton}
